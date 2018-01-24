@@ -1,3 +1,4 @@
+
 # Install-Sparklpr-in-HDInsight
 This article show you how to install package Sparklpr and then run a Hive query.
 
@@ -5,14 +6,21 @@ I created a small HDI/R cluster: R Server on Linux (HDI 3.6).
 The sparklyr seems working for me in R Studio:
 
 options(repos = "https://mran.microsoft.com/snapshot/2017-05-01")
+
 install.packages("sparklyr")
+
 packageVersion("sparklyr")
+
 [1] ‘0.5.4’
 
 library(sparklyr)
+
 library(DBI)
+
 sc <- spark_connect(master = "local")
+
 mydata <- dbGetQuery(sc, "SELECT * FROM hivesampletable LIMIT 10")
+
 print(mydata)
 
 You should see:
